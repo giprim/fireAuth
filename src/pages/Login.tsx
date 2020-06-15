@@ -34,16 +34,13 @@ const Login = () => {
 				.auth()
 				.signInWithEmailAndPassword(data.email, data.password)
 				.then((response) => {
-					console.log(response);
 					dispatch(auth_action(response));
 				})
 				.catch((err) => console.error(err));
 		}
 	};
 
-	if (auth.hasOwnProperty('user')) {
-		console.log(auth);
-
+	if (auth !== null) {
 		// console.log(auth.additionalUserInfo.providerId);
 		return <Redirect to='/home' />;
 	}

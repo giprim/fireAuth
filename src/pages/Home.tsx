@@ -1,23 +1,23 @@
-import React from 'react'
-import Button from '../components/Button'
-import firebase from '../Firebase/Firebase'
-import { useDispatch } from 'react-redux'
+import React from 'react';
+import firebase from '../Firebase/Firebase';
+import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { signout } from '../Redux/actions/authActions';
+import { BtnElement } from '../styles/Css';
 
 const Home = () => {
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-  const logout = () => {
-    console.log(firebase.auth().signOut())
-    
-    firebase.auth().signOut()
-    
-  }
-  return (
-    <div>
-      <h2>HOME 📄 </h2>
-      <Button text="signout" onClick={() => logout()} />
-    </div>
-  )
-}
+	const logout = () => {
+		firebase.auth().signOut();
+		dispatch(signout());
+	};
+	return (
+		<div>
+			<h2>HOME </h2>
+			<BtnElement onClick={logout}>sign out</BtnElement>
+		</div>
+	);
+};
 
-export default Home
+export default Home;

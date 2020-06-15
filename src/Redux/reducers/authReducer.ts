@@ -1,23 +1,22 @@
-import { Action } from "redux";
-import { AUTH } from "../actions/authActions";
+import { Action } from 'redux';
+import { AUTH, SIGNOUT } from '../actions/authActions';
 
-interface IActions extends Action{
-  payload: any
+interface IActions extends Action {
+	payload: any;
 }
 
-interface Istate {
-  auth: {}
-}
+const initialState: {} | null = null;
 
+const AuthReducer = (state = initialState, action: IActions) => {
+	switch (action.type) {
+		case AUTH:
+			return (state = { ...action.payload });
 
-const AuthReducer = (state = {}, action: IActions) => {
-  switch(action.type){
-    case AUTH: 
-    return {...state,   ...action.payload}
+		case SIGNOUT:
+			return (state = null);
+		default:
+			return state;
+	}
+};
 
-    default: 
-    return state;
-  }
-}
-
-export default AuthReducer
+export default AuthReducer;

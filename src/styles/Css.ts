@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InputBox = styled('input')`
-padding: 10px 20px;
-border: 1px #999 solid;
-font-size: 17px;
-box-shadow: 1px 1px 4px #eee;
-margin: 10px;
-width: 100%;
-border-radius: 5px;
+	padding: 10px 20px;
+	border: 1px #999 solid;
+	font-size: 17px;
+	box-shadow: 1px 1px 4px #eee;
+	margin: 10px;
+	width: 100%;
+	border-radius: 5px;
 `;
 
 export const Form = styled('form')`
@@ -18,11 +18,26 @@ export const Form = styled('form')`
 `;
 
 export const LayoutBox = styled('div')`
-display: flex;
-flex-wrap: wrap;
-max-width: 1000px;
-margin: 0 auto;
-padding: 2em;
-height: 100%;
-flex-direction: column;
-`
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 2em;
+	height: 100%;
+	flex-direction: column;
+`;
+
+export const BtnElement = styled('button')`
+	font-size: 1.2em;
+	padding: 0.4em 1em;
+	margin: 10px;
+	border: 1px #aaa solid;
+	border-radius: 5px;
+	background: #fff;
+	color: #444;
+
+	&:hover {
+		background: #eee;
+		box-shadow: 3px 5px 15px #aaaaaa4a;
+	}
+`;
