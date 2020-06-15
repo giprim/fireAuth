@@ -1,21 +1,19 @@
 import { Action } from "redux";
+import { AUTH } from "../actions/authActions";
 
 interface IActions extends Action{
-
+  payload: any
 }
 
 interface Istate {
   auth: {}
 }
 
-const initialState:Istate  = {
-  auth: {}
-}
 
 const AuthReducer = (state = {}, action: IActions) => {
   switch(action.type){
-    case "Login": 
-    return {...state, login: "just Logged in"}
+    case AUTH: 
+    return {...state,   ...action.payload}
 
     default: 
     return state;
