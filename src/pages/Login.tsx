@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Container from '../components/Container';
 import Button from '../components/Button';
 import { Link, Redirect } from 'react-router-dom';
-import { InputBox, Form } from '../styles/Css';
+import { InputBox, Form, H1 } from '../styles/Css';
 import { useSelector, useDispatch } from 'react-redux';
 import { PHONE_TEST } from '../functionalities/regularExpressions';
 import firebase from 'firebase';
@@ -41,32 +41,31 @@ const Login = () => {
 	};
 
 	if (auth !== null) {
-		// console.log(auth.additionalUserInfo.providerId);
-		return <Redirect to='/home' />;
+		return <Redirect to='/dashboard' />;
 	}
 
 	return (
 		<Container>
-			<h1>Login</h1>
 			<Form onSubmit={handleSubmit}>
+			<H1>Login</H1>
 				<InputBox
 					onChange={SetInputData}
 					value={data.email}
 					type='email'
 					id='email'
-					placeholder='phone number'
+					placeholder='email: youremail@email.com'
 				/>
 				<InputBox
 					onChange={SetInputData}
 					type='password'
 					id='password'
 					value={data.password}
-					placeholder='phone number'
+					placeholder='password'
 				/>
-				<Button text='Login' />
+				<Button text='Login' bgcolor='#eaa' />
 				<br />
 				<Link to='/signup'>
-					<code>Create a new account</code>
+				Create a new account
 				</Link>
 			</Form>
 		</Container>

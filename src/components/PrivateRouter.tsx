@@ -1,23 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import firebase from 'firebase';
-import { auth_action } from '../Redux/actions/authActions';
+import { useSelector } from 'react-redux';
 
+/**
+ * Checks for authentication before routing
+ * @param Component
+ * @example 
+ * <PrivateRouter path='/home' component={Home} />
+ */
 const PrivateRouter = ({ component: Component, ...rest }: any) => {
 	const auth = useSelector((state: any) => state.auth);
-	const dispatch = useDispatch();
-
-	// useEffect(() => {
-	// 	firebase.auth().onAuthStateChanged(function (user) {
-	// 		if (user) {
-	// 			// User is signed in.
-	// 			dispatch(auth_action(user));
-	// 		}
-	// 	});
-	// }, [dispatch]);
-
-	console.log(auth);
 
 	if (auth) {
 		return <Route {...rest} render={(props) => <Component {...props} />} />;
@@ -25,8 +17,7 @@ const PrivateRouter = ({ component: Component, ...rest }: any) => {
 		return (
 			<Route
 				{...rest}
-				render={(props) => {
-					// const { location } = props;
+				render={() => {
 					return <Redirect to='/' />;
 				}}
 			/>

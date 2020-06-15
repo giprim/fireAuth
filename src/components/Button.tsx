@@ -10,7 +10,9 @@ interface IButton extends React.HTMLAttributes<HTMLButtonElement> {
 const BtnElement = styled('button')`
 	font-size: 1.2em;
 	padding: 0.4em 1em;
-	margin: 10px;
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
 	border: 1px #aaa solid;
 	border-radius: 5px;
 	background: ${({ bgcolor }: IButton) => (bgcolor ? bgcolor : '#fff')};
@@ -22,8 +24,8 @@ const BtnElement = styled('button')`
 	}
 `;
 
-const Button: React.FC<IButton> = ({ text }) => {
-	return <BtnElement text={text}>{text}</BtnElement>;
+const Button: React.FC<IButton> = ({bgcolor, text }) => {
+	return <BtnElement bgcolor={bgcolor} text={text}>{text}</BtnElement>;
 };
 
 export default Button;

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Container from '../components/Container';
-import { Form, InputBox } from '../styles/Css';
+import { Form, InputBox, H1 } from '../styles/Css';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import { PHONE_TEST } from '../functionalities/regularExpressions';
 import firebase from '../Firebase/Firebase';
 import { useDispatch } from 'react-redux';
 import { auth_action } from '../Redux/actions/authActions';
@@ -38,25 +37,26 @@ const Signup = () => {
 	return (
 		<Container>
 			<Link to='/'>Home</Link>
-			<h1>Sign up</h1>
 
 			<Form onSubmit={handleSubmit}>
+			<H1>Sign up</H1>
 				<div id='recaptcha'></div>
 				<InputBox
 					onChange={SetInputData}
 					value={data.email}
 					type='email'
 					id='email'
-					placeholder='phone number'
+					placeholder='email: youremail@email.com'
 				/>
 				<InputBox
 					onChange={SetInputData}
 					type='password'
 					id='password'
 					value={data.password}
-					placeholder='phone number'
+					placeholder='password'
 				/>
-				<Button text='Register' />
+				<Button text='Register' bgcolor="#aec" />
+			<Link to='/'>Already have an account?</Link>
 			</Form>
 		</Container>
 	);
@@ -64,23 +64,3 @@ const Signup = () => {
 
 export default Signup;
 
-// provider
-// 				.verifyPhoneNumber(phoneNumber, recaptcha)
-// 				.then((verificationID) => {
-// 					let verificationCode = prompt(
-// 						'enter the verification code sent to you',
-// 						'',
-// 					);
-// 					if (verificationCode !== null)
-// 						return firebase.auth.PhoneAuthProvider.credential(
-// 							verificationID,
-// 							verificationCode,
-// 						);
-// 				})
-// 				.then((phoneCredential) => {
-// 					if (phoneCredential !== undefined)
-// 						return firebase
-// 							.auth()
-// 							.signInWithCredential(phoneCredential);
-// 				})
-// 				.catch((err) => console.error(err));
