@@ -7,7 +7,8 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRouter from "./components/PrivateRouter";
 
 function App() {
-  return (
+
+  return (   
     <BrowserRouter>
       <Link to="/dashboard">Dashboard</Link>
       <Switch>

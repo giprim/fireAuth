@@ -7,8 +7,8 @@ const Div = styled("div")`
   width: 270px;
   height: 226px;
   background: white;
-  box-shadow: 3px 3px 10px #eee;
   text-align: center;
+  margin: 10px 5px;
 
   &:hover {
     box-shadow: 3px 3px 15px #4444ff22;
@@ -17,18 +17,19 @@ const Div = styled("div")`
   a {
     margin: auto;
     cursor: pointer;
+    text-decoration: none;
   }
 
   h4 {
     margin-top: 1rem;
-    color: #44f;
+    color: #183c8e;
     font-size: 1.5em;
   }
 
   i svg {
     width: 60px;
     height: auto;
-    fill: #44f;
+    fill: #183c8e;
   }
 `;
 
