@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { signout } from "../Redux/actions/authActions";
 import { BtnElement } from "../styles/Css";
 import InputWithSideLabel from "../components/InputWithSideLabel";
+import StatusBar from "../components/StatusBar";
 
 import styled from "styled-components";
 
@@ -33,6 +34,7 @@ const Home = () => {
   return (
     <div>
       <h2>HOME </h2>
+      <StatusBar status="Deposit" info="Balance: $500,000" />
       <BtnElement onClick={logout}>sign out</BtnElement>
       <form onSubmit={handleSubmit}>
         <InputWithSideLabel
