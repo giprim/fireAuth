@@ -12,7 +12,6 @@ const Container = styled("div")`
 
   @media screen and (max-width: 759px) {
     justify-content: start;
-    background: green;
   }
 `;
 

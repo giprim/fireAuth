@@ -10,6 +10,10 @@ const Div = styled("div")`
   text-align: center;
   margin: 10px 5px;
 
+  @media screen and (max-width: 900px) {
+    margin: 10px;
+  }
+
   &:hover {
     box-shadow: 3px 3px 15px #4444ff22;
   }
