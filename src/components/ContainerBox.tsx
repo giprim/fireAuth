@@ -8,7 +8,12 @@ const Container = styled("div")`
   justify-content: space-between;
   max-width: 900px;
   padding: 15px;
-  background: #183c8e;
+  background: #77efff;
+
+  @media screen and (max-width: 759px) {
+    justify-content: start;
+    background: green;
+  }
 `;
 
 const ContainerBox: React.FC = ({ children }) => {

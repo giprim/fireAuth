@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import firebase from "../Firebase/Firebase";
 import { useDispatch } from "react-redux";
 import { signout } from "../Redux/actions/authActions";
 import { BtnElement } from "../styles/Css";
-import IconTitleBox from "../components/IconTitleBox";
-import Input from "../components/Input";
-import ContainerBox from "../components/ContainerBox";
+import InputWithSideLabel from "../components/InputWithSideLabel";
 
-import Icon from "react-icons-kit";
-import { profile } from "react-icons-kit/icomoon/profile";
 import styled from "styled-components";
 
 const BoxFlex = styled("div")`
   display: flex;
 `;
 
+const initInput = {
+  username: "",
+  password: "",
+  validId: ""
+};
+
 const Home = () => {
   const dispatch = useDispatch();
+
+  const [inputState, setInputState] = useState(initInput);
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(inputState);
+  };
 
   const logout = () => {
     firebase.auth().signOut();
@@ -26,43 +34,35 @@ const Home = () => {
     <div>
       <h2>HOME </h2>
       <BtnElement onClick={logout}>sign out</BtnElement>
-      <BoxFlex>
-        <ContainerBox>
-          <IconTitleBox
-            title="Withdrawal"
-            link="/"
-            icon={<Icon icon={profile} />}
-          />
-          <IconTitleBox
-            title="Deposit"
-            link="/"
-            icon={<Icon icon={profile} />}
-          />
+      <form onSubmit={handleSubmit}>
+        <InputWithSideLabel
+          state={inputState}
+          setState={setInputState}
+          label="username"
+          placeholder="User name"
+          showLabel={true}
+        />
 
-          <IconTitleBox
-            title="Transfer"
-            link="/"
-            icon={<Icon icon={profile} />}
-          />
-          <IconTitleBox
-            title="Transaction History"
-            link="/"
-            icon={<Icon icon={profile} />}
-          />
-          <IconTitleBox
-            title="Balance"
-            link="/"
-            icon={<Icon icon={profile} />}
-          />
+        <InputWithSideLabel
+          state={inputState}
+          setState={setInputState}
+          label="password"
+          placeholder="Password"
+          type="password"
+          showLabel={true}
+        />
 
-          <IconTitleBox
-            title="Cards and Checks"
-            link="/"
-            icon={<Icon icon={profile} />}
-          />
-        </ContainerBox>
-      </BoxFlex>
-      <Input />
+        <InputWithSideLabel
+          state={inputState}
+          setState={setInputState}
+          label="validId"
+          placeholder="Valid Id"
+          type="file"
+          showLabel={true}
+        />
+
+        <button>submit</button>
+      </form>
     </div>
   );
 };
