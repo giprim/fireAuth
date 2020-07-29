@@ -7,13 +7,11 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRouter from "./components/PrivateRouter";
 
 function App() {
-
-  return (   
+  return (
     <BrowserRouter>
-      <Link to="/dashboard">Dashboard</Link>
       <Switch>
-        <PrivateRouter path="/" exact component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/" exact component={Login} />
+        <PrivateRouter path="/dashboard" component={Dashboard} />
         <Route path="/signup" component={Signup} />
       </Switch>
     </BrowserRouter>
